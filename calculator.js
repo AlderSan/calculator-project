@@ -26,6 +26,7 @@ initialize();
 //function - on num button press
 function onNumberPress(button){
     console.log(`${button} was pressed.`);
+
 };
 //if operator === ''
 //add num to num1 (as string for multi digits)
@@ -71,6 +72,15 @@ function onClearPress(){
 //set num2, operator variables to ''
 
 //display function
+function display(){
+    if (num2 !== ''){
+        display.innerText = num2;
+    } else if (operator !== ''){
+        display.innerText = operator;
+    } else {
+        display.innerText = num1;
+    }
+}
 //if num2 !== ''
 //display num2 on screen
 //else if operator !== ''
