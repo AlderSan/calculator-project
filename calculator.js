@@ -161,6 +161,7 @@ function display(){
 //multiple decimals -- done
 //divide by zero error -- done
 //after calculate, pressing number resets -- done
-//backspace button
+//backspace button -- in progress
+//operator with no num1 
 //keyboard support
 

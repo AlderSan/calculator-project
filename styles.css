@@ -53,3 +53,11 @@
     background-color: lightgray;
     font-size: 30px;
 }
+
+.backspace {
+    flex-shrink: 0;
+}
+
+.eq {
+    height: 100%;
+}
