@@ -11,6 +11,7 @@ function initialize() {
     const buttonEquals = document.querySelector("button.equals");
     const buttonClear = document.querySelector("button.clear");
     const buttonDecimal = document.querySelector("button.decimal");
+    const buttonBackspace = document.querySelector("button.backspace");
 
     for (let button of buttonNumbers){
         button.addEventListener("click", () => onNumberPress(button.innerText)); 
@@ -21,6 +22,7 @@ function initialize() {
     buttonEquals.addEventListener("click", () => onEqualsPress());
     buttonClear.addEventListener("click", () => onClearPress());
     buttonDecimal.addEventListener("click", () => onDecimalPress());
+    buttonBackspace.addEventListener("click", () => onBackspacePress());
 };
 
 initialize();
@@ -157,11 +159,28 @@ function display(){
 //display operator on screen
 //else display num1 on screen
 
+//function onBackspacePress
+function onBackspacePress(){
+    console.log(`Backspace was pressed.`);
+    if (operator === ''){
+        if (typeof(num1) === "number"){
+            num1 = '';
+        } else {
+            num1 = num1.slice(0, -1);
+        };
+    } else if (operator !== '' && num2 !== ''){
+        num2 = num2.slice(0, -1);
+    } else if (operator !== '' && num2 === ''){
+        operator = '';
+    };
+    display();   
+}
+
 //to fix:
 //multiple decimals -- done
 //divide by zero error -- done
 //after calculate, pressing number resets -- done
-//backspace button -- in progress
+//backspace button -- done
 //operator with no num1 
 //keyboard support
 
