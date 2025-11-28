@@ -46,7 +46,7 @@ function onOperatorPress(button){
         operator = button;
         display();
     } else if (num2 !== ''){
-        calculate(num1, num2, operator);
+        calculate(parseFloat(num1), parseFloat(num2), operator);
         operator = button;
         display();
     };
@@ -62,8 +62,11 @@ function onOperatorPress(button){
 function onEqualsPress(){
     console.log(`Equals was pressed.`);
     if (num2 !== ''){
-        calcuate(num1, num2, operator);
+        calculate(parseFloat(num1), parseFloat(num2), operator);
         display()
+    } else if (operator !== ''){
+        operator = '';
+        display();
     };
 };
 //if num2 !== ''
@@ -83,6 +86,23 @@ function onClearPress(){
 
 
 //calculate function
+const operatorMap = {
+    '+': (a, b) => a + b,
+    '-': (a, b) => a - b,
+    '*': (a, b) => a * b,
+    '/': (a, b) => a / b,
+    '=': (a, b) => a == b,   
+};
+
+function calculate(a, b, op){
+    const result = operatorMap[op](a, b);
+    const roundedResult = Math.round(result * 100) / 100;
+    console.log({roundedResult});
+    num1 = roundedResult;
+    num2 = '';
+    operator = '';
+    display();
+}
 //takes num1, num2, operator values
 //object map - passed in the values, operator is key, value is function to perform the math
 //display result as num1
