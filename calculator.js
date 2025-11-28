@@ -3,6 +3,7 @@ let num1 = '';
 let num2 = '';
 let operator = '';
 let output = document.querySelector("input");
+let calculated = false;
 
 function initialize() {
     const buttonNumbers = document.querySelectorAll("button.number");
@@ -29,7 +30,11 @@ initialize();
 function onNumberPress(button){
     console.log(`${button} was pressed.`);
     if (operator === ''){
-        num1 = num1 + button;
+        if (typeof(num1) === "number"){
+            num1 = button;
+        } else {
+            num1 = num1 + button;
+        };
     } else if (operator !== ''){
         num2 = num2 + button;
     };
@@ -43,7 +48,7 @@ function onNumberPress(button){
 
 //function on decimal click
 function onDecimalPress(){
-    if (operator === '') {
+    if (operator === '' && typeof(num1) !== "number") {
         if (!num1.includes('.')){
             num1 = num1 + '.';
         };
@@ -155,7 +160,7 @@ function display(){
 //to fix:
 //multiple decimals -- done
 //divide by zero error -- done
-//after calculate, pressing number resets 
+//after calculate, pressing number resets -- done
 //backspace button
 //keyboard support
 
