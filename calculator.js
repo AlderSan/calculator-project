@@ -2,7 +2,7 @@
 let num1 = '';
 let num2 = '';
 let operator = '';
-let display = document.querySelector("input.calcWindow");
+let output = document.querySelector("input");
 
 function initialize() {
     const buttonNumbers = document.querySelectorAll("button.number");
@@ -26,7 +26,12 @@ initialize();
 //function - on num button press
 function onNumberPress(button){
     console.log(`${button} was pressed.`);
-
+    if (operator === ''){
+        num1 = num1 + button;
+    } else if (operator !== ''){
+        num2 = num2 + button;
+    }
+    display();
 };
 //if operator === ''
 //add num to num1 (as string for multi digits)
@@ -61,7 +66,7 @@ function onClearPress(){
     num1 = "";
     num2 = "";
     operator = "";
-    display = "";
+    display();
 };
 
 
@@ -74,11 +79,11 @@ function onClearPress(){
 //display function
 function display(){
     if (num2 !== ''){
-        display.innerText = num2;
+        output.value = num2;
     } else if (operator !== ''){
-        display.innerText = operator;
+        output.value = operator;
     } else {
-        display.innerText = num1;
+        output.value = num1;
     }
 }
 //if num2 !== ''
