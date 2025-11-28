@@ -188,5 +188,39 @@ function onBackspacePress(){
 //after calculate, pressing number resets -- done
 //backspace button -- done
 //operator with no num1 -- done
-//keyboard support
+//keyboard support -- done
 
+//keyboard support
+//add keydown listener
+//check for valid key press
+//[1 2 3 4 5 6 7 8 9 0 . / * - + = backspace enter delete]
+//on valid key press, trigger proper function
+
+const validNumber = ["1","2","3","4","5","6","7","8","9","0"];
+const validOperator = ["+","-","*","-","/"];
+const validKey = ["=","Enter","Backspace","."];
+
+window.addEventListener("keydown", (event) => {
+    if (validNumber.includes(event.key)){
+        onNumberPress(event.key);
+    } else if (validOperator.includes(event.key)){
+        onOperatorPress(event.key);
+    } else if (validKey.includes(event.key)){
+        switch (event.key) {
+            case "=":  
+                onEqualsPress();
+                break;
+            case "Enter":
+                onEqualsPress();
+                break;
+            case "Backspace":
+                onBackspacePress();
+                break;
+            case ".":
+                onDecimalPress();
+                break;
+            default:
+                return;
+        };
+    }
+});
