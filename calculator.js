@@ -30,7 +30,7 @@ function onNumberPress(button){
         num1 = num1 + button;
     } else if (operator !== ''){
         num2 = num2 + button;
-    }
+    };
     display();
 };
 //if operator === ''
@@ -49,7 +49,7 @@ function onOperatorPress(button){
         calculate(num1, num2, operator);
         operator = button;
         display();
-    }
+    };
 };
 //if num2 === ''
 //change operator to button value
@@ -61,6 +61,10 @@ function onOperatorPress(button){
 //function - on equals button press
 function onEqualsPress(){
     console.log(`Equals was pressed.`);
+    if (num2 !== ''){
+        calcuate(num1, num2, operator);
+        display()
+    };
 };
 //if num2 !== ''
 //process calculation
