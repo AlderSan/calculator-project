@@ -115,14 +115,22 @@ const operatorMap = {
 };
 
 function calculate(a, b, op){
-    const result = operatorMap[op](a, b);
-    const roundedResult = Math.round(result * 100) / 100;
-    console.log({roundedResult});
-    num1 = roundedResult;
-    num2 = '';
-    operator = '';
-    display();
-}
+    console.log({a},{b},{op});
+    if (op === '/' && b === 0){
+        num1 = "BOOM!";
+        num2 = '';
+        operator = '';
+        display();
+    } else {
+        const result = operatorMap[op](a, b);
+        const roundedResult = Math.round(result * 100) / 100;
+        console.log({roundedResult});
+        num1 = roundedResult;
+        num2 = '';
+        operator = '';
+        display();
+    };
+};
 //takes num1, num2, operator values
 //object map - passed in the values, operator is key, value is function to perform the math
 //display result as num1
@@ -146,7 +154,7 @@ function display(){
 
 //to fix:
 //multiple decimals -- done
-//divide by zero error
+//divide by zero error -- done
 //after calculate, pressing number resets 
 //backspace button
 //keyboard support
