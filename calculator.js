@@ -5,21 +5,23 @@ let operator = '';
 let display = document.querySelector("input.calcWindow");
 
 //function - assign mouse click events to:
-const initialize = function() {
+function initialize() {
     const buttonNumbers = document.querySelectorAll("button.number");
     const buttonOperators = document.querySelectorAll("button.operator");
     const buttonEquals = document.querySelector("button.equals");
     const buttonClear = document.querySelector("button.clear");
 
     for (let button of buttonNumbers){
-        button.addEventListener("click", onNumberKeyPress(button.innerText)); 
+        button.addEventListener("click", () => onNumberPress(button.innerText)); 
     };
     for (let button of buttonOperators){
-        button.addEventListener("click", onOperatorPress(button.innerText));
+        button.addEventListener("click", () => onOperatorPress(button.innerText));
     };
-    buttonEquals.addEventListener("click", onEqualsPress());
-    buttonClear.addEventListener("click", onClearPress());
+    buttonEquals.addEventListener("click", () => onEqualsPress());
+    buttonClear.addEventListener("click", () => onClearPress());
 };
+
+initialize();
 
 // button.number
 // button.operator
@@ -27,6 +29,9 @@ const initialize = function() {
 // button.clear
 
 //function - on num button press
+function onNumberPress(button){
+    console.log(`${button} was pressed.`);
+};
 //if operator === ''
 //add num to num1 (as string for multi digits)
 //if operator !== ''
@@ -34,6 +39,9 @@ const initialize = function() {
 //run display function
 
 //function - on operator button press
+function onOperatorPress(button){
+    console.log(`${button} was pressed.`);
+};
 //if num2 === ''
 //change operator to button value
 //if num2 !== ''
@@ -42,10 +50,20 @@ const initialize = function() {
 //run display function
 
 //function - on equals button press
+function onEqualsPress(){
+    console.log(`Equals was pressed.`);
+};
 //if num2 !== ''
 //process calculation
 //else do nothing
 //run display function
+
+//function - on clear button press
+function onClearPress(){
+    console.log(`Clear was pressed.`);
+};
+//sets num1, num2, operator, display = ""
+
 
 //calculate function
 //takes num1, num2, operator values
@@ -60,6 +78,4 @@ const initialize = function() {
 //display operator on screen
 //else display num1 on screen
 
-//clear function
-//sets num1, num2, operator, display = ""
 
