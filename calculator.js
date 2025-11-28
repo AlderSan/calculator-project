@@ -9,6 +9,7 @@ function initialize() {
     const buttonOperators = document.querySelectorAll("button.operator");
     const buttonEquals = document.querySelector("button.equals");
     const buttonClear = document.querySelector("button.clear");
+    const buttonDecimal = document.querySelector("button.decimal");
 
     for (let button of buttonNumbers){
         button.addEventListener("click", () => onNumberPress(button.innerText)); 
@@ -18,6 +19,7 @@ function initialize() {
     };
     buttonEquals.addEventListener("click", () => onEqualsPress());
     buttonClear.addEventListener("click", () => onClearPress());
+    buttonDecimal.addEventListener("click", () => onDecimalPress());
 };
 
 initialize();
@@ -39,7 +41,25 @@ function onNumberPress(button){
 //add num to num2 (as string for multi digits)
 //run display function
 
-//function - on operator button press
+//function on decimal click
+function onDecimalPress(){
+    if (operator === '') {
+        if (!num1.includes('.')){
+            num1 = num1 + '.';
+        };
+    } else if(operator !== ''){
+        if (!num2.includes('.')){
+            num2 = num2 + '.';
+        };
+    };
+    display();
+}
+//if operator === ''
+//check for decimal in num1. if no decimal, add it.
+//if operator !== ''
+//check for decimal in num2. if no decimal, add it.
+
+
 function onOperatorPress(button){
     console.log(`${button} was pressed.`);
     if (num2 === ''){
@@ -125,7 +145,7 @@ function display(){
 //else display num1 on screen
 
 //to fix:
-//multiple decimals
+//multiple decimals -- done
 //divide by zero error
 //after calculate, pressing number resets 
 //backspace button
