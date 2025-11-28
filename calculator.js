@@ -70,8 +70,14 @@ function onDecimalPress(){
 function onOperatorPress(button){
     console.log(`${button} was pressed.`);
     if (num2 === ''){
-        operator = button;
-        display();
+        if (num1 === ''){
+            num1 = 0;
+            operator = button;
+            display();
+        } else {
+            operator = button;
+            display();
+        };
     } else if (num2 !== ''){
         calculate(parseFloat(num1), parseFloat(num2), operator);
         operator = button;
@@ -181,6 +187,6 @@ function onBackspacePress(){
 //divide by zero error -- done
 //after calculate, pressing number resets -- done
 //backspace button -- done
-//operator with no num1 
+//operator with no num1 -- done
 //keyboard support
 
