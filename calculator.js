@@ -124,4 +124,10 @@ function display(){
 //display operator on screen
 //else display num1 on screen
 
+//to fix:
+//multiple decimals
+//divide by zero error
+//after calculate, pressing number resets 
+//backspace button
+//keyboard support
 
