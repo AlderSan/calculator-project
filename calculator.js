@@ -2,6 +2,29 @@
 let num1 = '';
 let num2 = '';
 let operator = '';
+let display = document.querySelector("input.calcWindow");
+
+//function - assign mouse click events to:
+const initialize = function() {
+    const buttonNumbers = document.querySelectorAll("button.number");
+    const buttonOperators = document.querySelectorAll("button.operator");
+    const buttonEquals = document.querySelector("button.equals");
+    const buttonClear = document.querySelector("button.clear");
+
+    for (let button of buttonNumbers){
+        button.addEventListener("click", onNumberKeyPress(button.innerText)); 
+    };
+    for (let button of buttonOperators){
+        button.addEventListener("click", onOperatorPress(button.innerText));
+    };
+    buttonEquals.addEventListener("click", onEqualsPress());
+    buttonClear.addEventListener("click", onClearPress());
+};
+
+// button.number
+// button.operator
+// button.equals
+// button.clear
 
 //function - on num button press
 //if operator === ''
@@ -36,4 +59,7 @@ let operator = '';
 //else if operator !== ''
 //display operator on screen
 //else display num1 on screen
+
+//clear function
+//sets num1, num2, operator, display = ""
 
