@@ -42,6 +42,14 @@ function onNumberPress(button){
 //function - on operator button press
 function onOperatorPress(button){
     console.log(`${button} was pressed.`);
+    if (num2 === ''){
+        operator = button;
+        display();
+    } else if (num2 !== ''){
+        calculate(num1, num2, operator);
+        operator = button;
+        display();
+    }
 };
 //if num2 === ''
 //change operator to button value
