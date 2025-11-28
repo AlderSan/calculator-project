@@ -4,7 +4,6 @@ let num2 = '';
 let operator = '';
 let display = document.querySelector("input.calcWindow");
 
-//function - assign mouse click events to:
 function initialize() {
     const buttonNumbers = document.querySelectorAll("button.number");
     const buttonOperators = document.querySelectorAll("button.operator");
@@ -23,10 +22,6 @@ function initialize() {
 
 initialize();
 
-// button.number
-// button.operator
-// button.equals
-// button.clear
 
 //function - on num button press
 function onNumberPress(button){
@@ -59,10 +54,14 @@ function onEqualsPress(){
 //run display function
 
 //function - on clear button press
+//sets num1, num2, operator, display = ""
 function onClearPress(){
     console.log(`Clear was pressed.`);
+    num1 = "";
+    num2 = "";
+    operator = "";
+    display = "";
 };
-//sets num1, num2, operator, display = ""
 
 
 //calculate function
